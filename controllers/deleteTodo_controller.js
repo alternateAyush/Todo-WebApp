@@ -1,5 +1,6 @@
 const Todos = require("../models/todos");
 
+// delete todo
 module.exports.deleteTodo = function (req, res) {
   var arr = Object.values(req.body);
   if(arr.length==0)

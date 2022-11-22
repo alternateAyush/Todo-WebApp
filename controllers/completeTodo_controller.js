@@ -1,5 +1,6 @@
 const Todos = require("../models/todos");
 
+// set todos complete = true
 module.exports.completeTodo = function (req, res) {
   var arr = Object.values(req.body);
   console.log(arr);

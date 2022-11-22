@@ -1,7 +1,7 @@
 
 const Todos = require('../models/todos');
 
-
+// create todo 
 module.exports.createTodo = function(req,res){
     Todos.create({
         task: req.body.task,

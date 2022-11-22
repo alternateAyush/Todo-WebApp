@@ -1,6 +1,6 @@
 const Todos = require('../models/todos');
 
-
+// fetch todo from DB
 module.exports.index = function(req,res){
     Todos.find({},function(err,todos){
         if(err)

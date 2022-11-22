@@ -12,6 +12,7 @@ deadline.setAttribute(
   `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 );
 
+// disable enable buttons
 function onLoad() {
   for (let i = 0; i < trueCheckbox.length; i++) {
     trueCheckbox[i].checked = true;
@@ -51,6 +52,7 @@ function randomColor()
    return `rgb(${r},${g},${b},0.8)`;
 }
 
+// theme change function
 function changeTheme() {
   light = !light;
   var themeBack = document.getElementsByClassName("theme-background");
