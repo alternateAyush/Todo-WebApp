@@ -11,19 +11,20 @@ module.exports.completeTodo = function (req, res) {
       if (err) {
         console.log(err);
         return;
-      }
-    }
-  );
-  Todos.updateMany(
-    { _id: { $in: arr } },
-    { $set: { complete: true } },
-    { multi: true },
-    function (err, records) {
-      if (err) {
-        console.log(err);
-        return;
       } else {
-        return res.redirect("back");
+        Todos.updateMany(
+          { _id: { $in: arr } },
+          { $set: { complete: true } },
+          { multi: true },
+          function (err, records) {
+            if (err) {
+              console.log(err);
+              return;
+            } else {
+              return res.redirect("back");
+            }
+          }
+        );
       }
     }
   );
