@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <script
+      src="https://kit.fontawesome.com/bb7f191b42.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <div
+      id="create-form-container"
+      class="d-flex flex-column align-items-center justify-content-lg-start"
+    >
+      <h1 class="flex-fill"><%= title %></h1>
+      <form
+        action="/create-todo"
+        method="post"
+        id="create-form"
+        class="d-flex flex-column flex-fill"
+      >
+        <div
+          class="d-flex flex-row justify-content-between flex-fill form-floating"
+        >
+          <input
+            type="text"
+            name="task"
+            placeholder="buy stationary"
+            class="form-control flex-fill custom-input cursor-pointer"
+            required
+          />
+          <label for="task">Desciption</label>
+        </div>
+
+        <div class="d-flex flex-row justify-content-between flex-fill">
+          <div
+            class="d-flex flex-column justify-content-between flex-fill form-floating"
+          >
+            <select
+              name="category"
+              class="flex-fill form-select custom-input cursor-pointer"
+              required
+            >
+              <option value="" disabled selected>Choose a Category</option>
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="Home">Home</option>
+              <option value="Other">Other</option>
+            </select>
+            <label for="category">Category</label>
+          </div>
+          <div
+            class="d-flex flex-column justify-content-between flex-fill form-floating"
+          >
+            <input
+              id="deadline"
+              type="date"
+              name="deadline"
+              class="flex-fill form-control custom-input cursor-pointer"
+              required
+            />
+            <label for="deadline">Deadline</label>
+          </div>
+        </div>
+      </form>
+      <div class="d-flex flex-row justify-content-center my-3">
+        <button
+          id="add-task-button"
+          type="submit"
+          form="create-form"
+          class="btn btn-secondary mx-1"
+        >
+          <i class="fa-solid fa-plus"></i> Add Task
+        </button>
+        <button
+        id="update-button"
+          type="submit"
+          form="delete-form"
+          formaction="/complete-todo"
+          class="btn btn-danger mx-1"
+        >
+          <i class="fa-solid fa-check"></i> Update Complete
+        </button>
+        <button
+        id="delete-button"
+          type="submit"
+          form="delete-form"
+          formaction="/delete-todo"
+          class="btn btn-primary mx-1"
+        >
+          <i class="fa-solid fa-trash-can"></i> Delete
+        </button>
+      </div>
+    </div>
+    <div id="delete-form-container">
+      <form
+        method="post"
+        id="delete-form"
+        class="d-flex justify-content-start flex-column"
+      >
+        <ul class="list-group flex-fill" id="todo-list">
+          <% for(let i of todos){ %>
+          <li class="list-group-item d-flex justify-content-start flex-row todo-items">
+            <input
+              type="checkbox"
+              class="me-2 form-check-input align-self-center cursor-pointer <%= i.complete.toString() %>-task "
+              value="<%= i._id %>"
+              name="<%= i._id %>"
+              id="<%= i._id %>"
+            />
+            <label
+              for="<%= i._id %>"
+              class="d-flex justify-content-between flex-row flex-fill"
+            >
+              <div class="d-flex justify-content-between flex-column">
+                <h5><%= i.task%></h5>
+                <span
+                  ><span
+                    ><i class="fa-solid fa-calendar-days me-1"></i><%=
+                    i.deadline.toString().substring(0,16) %></span
+                  >
+              </div>
+              <span class="text-end badge <%= i.category %>"
+                ><%= i.category %></span
+              ></label
+            >
+          </li>
+          <% } %>
+        </ul>
+      </form>
+    </div>
+    <!-- forms -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

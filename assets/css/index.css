@@ -1,0 +1,87 @@
+body{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: grey;
+}
+#create-form-container
+{
+    margin: 0px;
+    padding: 0px;
+    width: 40vw;
+    height: 40vh;
+    background-color: white;
+}
+#create-form-container form{
+    width: 100%;
+}
+#delete-form-container
+{
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: white;
+    padding-top: 20px ;
+    padding-bottom: 10px ;
+    width: 40vw;
+    height:auto;
+}
+.custom-input{
+    border-radius: 0px;
+}
+.custom-input:focus{
+    outline: none;
+    box-shadow: none;
+    background-color: rgb(245,245,245);
+    color: black;
+}
+.task-items{
+    width: 100%;
+}
+.list-group{
+    border-radius: 0px;
+}
+#delete-form-container ul{
+    width: 100%;
+}
+#delete-form-container li{
+    width: 100%;
+}
+.badge{
+    height: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+input:checked + label{
+    color: rgb(200,200,200);
+ text-decoration: line-through;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+#delete-form{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.hidden-flag{
+    /* display: none; */
+}
+.Personal{
+    background-color: #BA94D1;
+}
+.Work{
+    background-color: #E0144C;
+}
+.Home{
+    background-color: #749F82;
+}
+.Other{
+    background-color: #5DA7DB;
+}
